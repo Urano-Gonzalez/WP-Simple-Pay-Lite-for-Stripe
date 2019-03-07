@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<table>
 		<thead>
 		<tr>
-			<th colspan="2"><?php esc_html_e( 'Stripe Checkout Overlay Display', 'stripe' ); ?></th>
+			<th colspan="2"><?php esc_html_e( 'Stripe Checkout Display', 'simple-pay' ); ?></th>
 		</tr>
 		</thead>
 
@@ -15,49 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<tr class="simpay-panel-field">
 			<th>
-				<label for="_company_name"><?php esc_html_e( 'Company Name', 'stripe' ); ?></label>
-			</th>
-			<td>
-				<?php
-
-				simpay_print_field( array(
-					'type'    => 'standard',
-					'subtype' => 'text',
-					'name'    => '_company_name',
-					'id'      => '_company_name',
-					'value'   => simpay_get_saved_meta( $post->ID, '_company_name', get_bloginfo( 'name' ) ),
-					'class'   => array(
-						'simpay-field-text',
-					),
-				) );
-				?>
-			</td>
-		</tr>
-
-		<tr class="simpay-panel-field">
-			<th>
-				<label for="_item_description"><?php esc_html_e( 'Item Description', 'stripe' ); ?></label>
-			</th>
-			<td>
-				<?php
-
-				simpay_print_field( array(
-					'type'    => 'standard',
-					'subtype' => 'text',
-					'name'    => '_item_description',
-					'id'      => '_item_description',
-					'value'   => simpay_get_saved_meta( $post->ID, '_item_description' ),
-					'class'   => array(
-						'simpay-field-text',
-					),
-				) );
-				?>
-			</td>
-		</tr>
-
-		<tr class="simpay-panel-field">
-			<th>
-				<label for="_image_url"><?php esc_html_e( 'Logo/Image URL', 'stripe' ); ?></label>
+				<label for="_image_url"><?php esc_html_e( 'Logo/Image URL', 'simple-pay' ); ?></label>
 			</th>
 			<td>
 				<?php
@@ -76,15 +34,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 					// Description set below so the add image button doesn't break to below the description
 				) );
 				?>
-				<a class="simpay-media-uploader button"><?php esc_html_e( 'Add or Upload Image', 'stripe' ); ?></a>
+				<a class="simpay-media-uploader button"><?php esc_html_e( 'Add or Upload Image', 'simple-pay' ); ?></a>
 
 				<p class="description">
-					<?php esc_html_e( 'Upload or select a square image of your brand or product to show on the overlay. The recommended minimum size is 128x128px.', 'stripe' ); ?>
+					<?php esc_html_e( 'Upload or select a square image of your brand or product to show on the overlay. The recommended minimum size is 128x128px.', 'simple-pay' ); ?>
 				</p>
 
 				<!-- Image preview -->
 				<div class="simpay-image-preview-wrap <?php echo( empty( $image_url ) ? 'simpay-panel-hidden' : '' ); ?>">
-					<a href="#" class="simpay-remove-image-preview simpay-remove-icon" aria-label="<?php esc_attr_e( 'Remove image', 'stripe' ); ?>" title="<?php esc_attr_e( 'Remove image', 'stripe' ); ?>"></a>
+					<a href="#" class="simpay-remove-image-preview simpay-remove-icon" aria-label="<?php esc_attr_e( 'Remove image', 'simple-pay' ); ?>" title="<?php esc_attr_e( 'Remove image', 'simple-pay' ); ?>"></a>
 					<img src="<?php echo esc_attr( $image_url ); ?>" class="simpay-image-preview" />
 				</div>
 			</td>
@@ -92,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<tr class="simpay-panel-field">
 			<th>
-				<label for="_enable_remember_me"><?php esc_html_e( 'Enable Remember Me', 'stripe' ); ?></label>
+				<label for="_enable_remember_me"><?php esc_html_e( 'Enable Remember Me', 'simple-pay' ); ?></label>
 			</th>
 			<td>
 				<?php
@@ -109,7 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<tr class="simpay-panel-field">
 			<th>
-				<label for="_checkout_button_text"><?php esc_html_e( 'Checkout Button Text', 'stripe' ); ?></label>
+				<label for="_checkout_button_text"><?php esc_html_e( 'Checkout Button Text', 'simple-pay' ); ?></label>
 			</th>
 			<td>
 				<?php
@@ -124,8 +82,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 						'simpay-field-text',
 						'simpay-label-input',
 					),
-					'placeholder' => sprintf( esc_attr__( 'Pay %s', 'stripe' ), '{{amount}}' ),
-					'description' => sprintf( esc_html__( "Text used for the final checkout button on the overlay (not the on-page payment button). Add %s where you'd like to show the amount. If %s is omitted, it will be appended at the end of the button text unless it is a free trial.", 'stripe' ), '{{amount}}', '{{amount}}' ),
+					'placeholder' => sprintf( esc_attr__( 'Pay %s', 'simple-pay' ), '{{amount}}' ),
+					'description' => sprintf( esc_html__( "Text used for the final checkout button on the overlay (not the on-page payment button). Add %s where you'd like to show the amount. If %s is omitted, it will be appended at the end of the button text unless it is a free trial.", 'simple-pay' ), '{{amount}}', '{{amount}}' ),
 				) );
 				?>
 			</td>
@@ -135,12 +93,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<tr class="simpay-panel-field">
 			<th>
-				<label for="_verify_zip"><?php esc_html_e( 'Verify Zip/Postal Code', 'stripe' ); ?></label>
+				<label for="_verify_zip"><?php esc_html_e( 'Verify Zip/Postal Code', 'simple-pay' ); ?></label>
 			</th>
 			<td>
 				<?php
 
-				$verify_zip = simpay_get_saved_meta( $post->ID, '_verify_zip', 'no' );
+				$verify_zip = simpay_get_saved_meta( $post->ID, '_verify_zip', 'yes' );
 
 				simpay_print_field( array(
 					'type'  => 'checkbox',
@@ -154,7 +112,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<tr class="simpay-panel-field">
 			<th>
-				<label for="_enable_billing_address"><?php esc_html_e( 'Enable Billing Address', 'stripe' ); ?></label>
+				<label for="_enable_billing_address"><?php esc_html_e( 'Enable Billing Address', 'simple-pay' ); ?></label>
 			</th>
 			<td>
 				<?php
@@ -179,7 +137,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<tr class="simpay-panel-field <?php echo ( 'yes' !== $enable_billing_address ) ? 'simpay-panel-hidden' : ''; ?>" id="enable-shipping-address">
 			<th>
-				<label for="_enable_shipping_address"><?php esc_html_e( 'Enable Shipping Address', 'stripe' ); ?></label>
+				<label for="_enable_shipping_address"><?php esc_html_e( 'Enable Shipping Address', 'simple-pay' ); ?></label>
 			</th>
 			<td>
 				<?php
@@ -197,4 +155,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tbody>
 	</table>
 
-<?php do_action( 'simpay_admin_after_overlay_display' );
+<?php do_action( 'simpay_admin_after_stripe_checkout' );
