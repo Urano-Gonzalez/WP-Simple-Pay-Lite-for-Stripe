@@ -52,6 +52,10 @@ if ( ! defined( 'SIMPLE_PAY_VERSION' ) ) {
 		define( 'SIMPLE_PAY_URL', plugin_dir_url( __FILE__ ) );
 	}
 
+	if ( ! defined( 'SIMPLE_PAY_STRIPE_PARTNER_ID' ) ) {
+		define( 'SIMPLE_PAY_STRIPE_PARTNER_ID', 'pp_partner_DKkf27LbiCjOYt' );
+	}
+
 	if ( ! defined( 'SIMPLE_PAY_ASSETS' ) ) {
 		define( 'SIMPLE_PAY_ASSETS', plugin_dir_url( __FILE__ ) . 'assets/' );
 	}
